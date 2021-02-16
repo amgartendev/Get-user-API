@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+img {
+    position: relative;
+    top: -135px;
+    left: 65px;
+    width: 100px;
+    height: 100px;
+}
+
+#containerInfos {
+    display: none;
+    padding: 30px;
+    position: absolute;
+    width: 600px;
+    height: 160px;
+    top: 70%;
+    left: 650px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .7);
+}
+
+#containerInfos p {
+    font-family: sans-serif;
+}
+
+#containerInfos span {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#containerInfos #img {
+    position: absolute;
+    top: 100%;
+    left: 60%;
+}
+
+.containerInput {
+    width: 320px;
+    height: 290px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0);
+    transform: translate(-50%, -50%);
+    padding: 70px 30px;
+}
+
+.fa-user {
+    position: relative;
+    top: -27%;
+    left: -4%;
+}
+
+.containerInput p {
+    position: relative;
+    text-align: center;
+    top: -85%;
+}
+
+.containerInput input {
+    position: relative;
+    top: -55%;
+    left: 30px;
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.containerInput button {
+    position: relative;
+    top: -20%;
+    left: 10px;
+    width: 240px;
+    height: 50px;
+    border-radius: 30px;
+    outline: none;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.containerInput button:hover {
+    transition: .3s;
+    background: rgba(0, 0, 0, 0.865);
+    color: #fff;
+    border-color:#fff;
+}

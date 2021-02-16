@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API DESAFIO</title>
+    <link rel="stylesheet" href="apidesafio.css">
+    <script src="https://kit.fontawesome.com/308a5f2836.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/308a5f2836.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="containerInput">
+        <i class="fas fa-user"></i>
+        <img src="github.png" alt="github logo">
+
+        <p><b>GET USER'S API</b></p>
+        <input id="gitUser" type="text" placeholder="Insert username">    
+    
+        <button type="submit"><b>SUBMIT</b></button>
+        <p id="error"></p>
+    </div> 
+
+    <div id="containerInfos">
+        <p>Login: <span id="login"></span></p>
+        <br>
+        <p>Name: <span id="name"></span></p>
+        </br>
+        <p>Created at: <span id="accCreated"></span></p>
+        <br>
+        <span id="profIMG"></span>
+
+        <div id="img">
+        </div>
+    </div>
+
+    <script>
+        async function GitAPI(getInput) {
+            try {
+                const response = await fetch(`https://api.github.com/users/${getInput}`)
+                const json = await response.json()
+
+                if (!response.ok) throw new Error('Usuário não foi encontrado')
+                const displayBlock = document.querySelector('#containerInfos').style.display = 'block'
+                
+                SendHTML(json)   
+                console.log(json)
+            } catch(error) {
+                document.querySelector('#error').innerHTML = error.message
+
+                setTimeout(() => {
+                    document.querySelector('#error').innerHTML = ''
+                }, 2500)
+            }
+            
+        }
+
+        const button = document.querySelector('button')
+
+        button.addEventListener('click', () => {
+            const displayBlock = document.querySelector('#containerInfos').style.display = 'none'
+            const user = document.querySelector('input')
+            GitAPI(user.value)
+            user.value = ''
+        })
+
+        function SendHTML(user) {
+            let login = document.querySelector('#login').innerHTML = user.login
+            let name = document.querySelector('#name').innerHTML = user.name
+            let accCreated = document.querySelector('#accCreated').innerHTML = user.created_at
+            let profIMG = document.querySelector('#img').innerHTML = `<img src=${user.avatar_url}>`
+        }
+
+    </script>
+</body>
+</html>
